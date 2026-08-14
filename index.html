@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduard Sánchez i Oliveras — Psicòleg Infantojuvenil · Manresa</title>
+<meta name="description" content="Psicòleg especialitzat en infància i adolescència. Acompanyament terapèutic a nens, nenes, adolescents i les seves famílies a Manresa i en línia.">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --surface: #fbf8f3;
+    --text: #2a2420;
+    --muted: #6b5f55;
+    --accent: #b07d62;
+    --accent-dark: #8a5a42;
+    --soft: #e8dfd3;
+    --border: #e0d5c4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .logo, .nav-links a, .btn {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-weight: 500;
+  }
+  .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  nav {
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; gap: 24px;
+  }
+  .logo { font-size: 22px; letter-spacing: 0.02em; }
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 16px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .lang-switch {
+    display: flex; gap: 4px;
+    font-family: -apple-system, sans-serif; font-size: 13px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 4px; background: var(--surface);
+  }
+  .lang-switch button {
+    background: transparent; border: none; padding: 6px 10px;
+    cursor: pointer; color: var(--muted); border-radius: 2px;
+    font-family: inherit; font-size: inherit; letter-spacing: inherit;
+    text-transform: inherit; transition: all 0.2s;
+  }
+  .lang-switch button:hover { color: var(--text); }
+  .lang-switch button.active {
+    background: var(--text); color: var(--bg);
+  }
+  .hero {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--soft) 100%);
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px; align-items: center;
+  }
+  .eyebrow {
+    display: inline-block; color: var(--accent);
+    font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 28px; font-family: -apple-system, sans-serif;
+    font-weight: 500;
+  }
+  h1 {
+    font-size: clamp(44px, 5.5vw, 68px);
+    line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 32px; font-style: italic;
+  }
+  .hero p.lead {
+    font-size: 20px; color: var(--muted);
+    margin-bottom: 44px; max-width: 480px;
+  }
+  .btn {
+    display: inline-block; padding: 16px 32px; border-radius: 4px;
+    font-size: 17px; text-decoration: none; transition: all 0.3s;
+    border: 1px solid var(--text); cursor: pointer;
+  }
+  .btn-primary { background: var(--text); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-secondary { background: transparent; color: var(--text); margin-left: 12px; }
+  .btn-secondary:hover { background: var(--text); color: var(--bg); }
+  .hero-photo, .about-photo {
+    border-radius: 4px; overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(42, 36, 32, 0.25);
+    background: var(--soft);
+  }
+  .hero-photo { aspect-ratio: 4/5; }
+  .hero-photo img, .about-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  section { padding: 100px 0; border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 13px; color: var(--accent); letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 56px;
+    font-family: -apple-system, sans-serif; font-weight: 500;
+  }
+  h2 {
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.15; margin-bottom: 28px;
+    font-style: italic; max-width: 720px;
+  }
+  .section-intro {
+    font-size: 18px; color: var(--muted);
+    max-width: 620px; margin-bottom: 64px;
+  }
+  .about { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: start; }
+  .about-photo {
+    aspect-ratio: 3/4;
+    box-shadow: 0 20px 40px -15px rgba(42, 36, 32, 0.2);
+  }
+  .about p { color: var(--muted); margin-bottom: 22px; font-size: 17px; }
+  .about p.lead-text { color: var(--text); font-size: 19px; font-style: italic; }
+  .creds { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .creds dt { font-weight: 500; margin-top: 18px; font-size: 14px;
+    color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase;
+    font-family: -apple-system, sans-serif; }
+  .creds dd { color: var(--muted); font-size: 15.5px; margin-left: 0; margin-top: 4px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 40px; transition: all 0.3s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .card-number {
+    font-size: 15px; color: var(--accent);
+    font-family: -apple-system, sans-serif; font-weight: 500;
+    letter-spacing: 0.1em; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 24px; margin-bottom: 12px; }
+  .card p { color: var(--muted); font-size: 16px; }
+  .process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .step { text-align: left; }
+  .step-number {
+    font-size: 56px; color: var(--accent); opacity: 0.3;
+    line-height: 1; margin-bottom: 12px;
+  }
+  .step h3 { font-size: 24px; margin-bottom: 12px; }
+  .step p { color: var(--muted); font-size: 16px; }
+  .faq-item {
+    border-top: 1px solid var(--border); padding: 28px 0;
+    max-width: 760px;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-q { font-size: 22px; margin-bottom: 10px; font-style: italic; }
+  .faq-a { color: var(--muted); font-size: 16.5px; }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 64px;
+  }
+  .contact-info h3 {
+    font-size: 13px; color: var(--accent); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 8px; margin-top: 28px;
+    font-family: -apple-system, sans-serif; font-weight: 500;
+  }
+  .contact-info h3:first-child { margin-top: 0; }
+  .contact-info p { font-size: 17px; }
+  .contact-info a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  input, textarea {
+    width: 100%; padding: 16px; border: 1px solid var(--border);
+    border-radius: 4px; font-family: inherit; font-size: 16px;
+    background: var(--bg); color: var(--text); margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 120px; }
+  form button { width: 100%; padding: 18px; font-size: 18px; }
+  footer {
+    padding: 50px 0; border-top: 1px solid var(--border);
+    text-align: center; color: var(--muted); font-size: 14px;
+    font-family: -apple-system, sans-serif;
+  }
+  footer a { color: var(--muted); text-decoration: none; margin: 0 14px; }
+  footer a:hover { color: var(--accent); }
+
+  /* Bilingüe: ocultar el idioma no activo */
+  [data-lang="es"] { display: none; }
+  html[data-active-lang="es"] [data-lang="es"] { display: revert; }
+  html[data-active-lang="es"] [data-lang="ca"] { display: none; }
+
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    .nav-inner { flex-wrap: wrap; }
+    .hero-inner, .about, .contact-inner, .process, .grid-2 {
+      grid-template-columns: 1fr; gap: 40px;
+    }
+    .hero { padding: 60px 0; }
+    section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#top" class="logo-link" aria-label="Eduard Sánchez i Oliveras — Inici">
+      <img src="Logo3.jpg" alt="Eduard Sánchez i Oliveras" class="logo-img">
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#sobre-mi" data-lang="ca">Sobre mi</a>
+        <a href="#sobre-mi" data-lang="es">Sobre mí</a>
+        <a href="#areas" data-lang="ca">Àrees</a>
+        <a href="#areas" data-lang="es">Áreas</a>
+        <a href="#proceso" data-lang="ca">Acompanyament</a>
+        <a href="#proceso" data-lang="es">Acompañamiento</a>
+        <a href="#contacte" data-lang="ca">Contacte</a>
+        <a href="#contacte" data-lang="es">Contacto</a>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Idioma">
+        <button type="button" data-set-lang="ca" class="active">CA</button>
+        <button type="button" data-set-lang="es">ES</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow" data-lang="ca">Psicologia Infantojuvenil · Manresa</div>
+      <div class="eyebrow" data-lang="es">Psicología Infantojuvenil · Manresa</div>
+
+      <h1 data-lang="ca">Acompanyar els infants és escoltar el que encara no saben dir.</h1>
+      <h1 data-lang="es">Acompañar a los niños es escuchar lo que todavía no saben decir.</h1>
+
+      <p class="lead" data-lang="ca">Sóc l'Eduard, psicòleg especialitzat en infància i adolescència. Ofereixo un espai segur, proper i sense presses perquè nens, nenes i adolescents puguin entendre's millor i créixer al seu ritme.</p>
+      <p class="lead" data-lang="es">Soy Eduard, psicólogo especializado en infancia y adolescencia. Ofrezco un espacio seguro, cercano y sin prisas para que niños, niñas y adolescentes puedan entenderse mejor y crecer a su ritmo.</p>
+
+      <a href="#contacte" class="btn btn-primary" data-lang="ca">Reservar primera entrevista</a>
+      <a href="#contacto" class="btn btn-primary" data-lang="es">Reservar primera entrevista</a>
+      <a href="#sobre-mi" class="btn btn-secondary" data-lang="ca">Coneix-me</a>
+      <a href="#sobre-mi" class="btn btn-secondary" data-lang="es">Conóceme</a>
+    </div>
+    <div class="hero-photo">
+      <img src="ornamental_1.jpg" alt="Imatge ornamental">
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="container">
+    <div class="section-label" data-lang="ca">Sobre mi</div>
+    <div class="section-label" data-lang="es">Sobre mí</div>
+
+    <div class="about">
+      <div class="about-photo">
+        <img src="eduard_1.jpg" alt="Eduard Sánchez treballant amb un infant">
+      </div>
+      <div>
+        <h2 data-lang="ca">Més enllà del diagnòstic, una mirada comprensiva.</h2>
+        <h2 data-lang="es">Más allá del diagnóstico, una mirada comprensiva.</h2>
+
+        <p class="lead-text" data-lang="ca">Fa 5 anys que acompanyo nens, nenes i adolescents en consulta privada, i cada història m'ensenya una nova manera d'escoltar.</p>
+        <p class="lead-text" data-lang="es">Llevo 5 años acompañando a niños, niñas y adolescentes en consulta privada, y cada historia me enseña una nueva manera de escuchar.</p>
+
+        <p data-lang="ca">El meu treball parteix d'una idea clara: cada infant és únic, i el seu benestar depèn tant d'ell com del seu entorn. Per això em centro no sols en el diagnòstic, sinó en comprendre la globalitat de la situació: l'infant, la família, l'escola.</p>
+        <p data-lang="es">Mi trabajo parte de una idea clara: cada niño es único, y su bienestar depende tanto de él como de su entorno. Por eso me centro no solo en el diagnóstico, sino en comprender la globalidad de la situación: el niño, la familia, la escuela.</p>
+
+        <p data-lang="ca">Utilitzo un abordatge terapèutic integrador, tot combinant l'enfocament sistèmic amb tècniques cognitiu-conductuals, adaptant-me a cada cas i a cada moment vital.</p>
+        <p data-lang="es">Utilizo un abordaje terapéutico integrador, combinando el enfoque sistémico con técnicas cognitivo-conductuales, adaptándome a cada caso y a cada momento vital.</p>
+
+        <dl class="creds">
+          <dt data-lang="ca">Col·legiació</dt>
+          <dt data-lang="es">Colegiación</dt>
+          <dd>Núm. 30616 · Col·legi de Psicòlegs de Catalunya</dd>
+
+          <dt data-lang="ca">Formació</dt>
+          <dt data-lang="es">Formación</dt>
+          <dd data-lang="ca">Màster en Psicologia Infantojuvenil (UOC, 2025)<br>Grau en Psicologia, menció Salut (UVic, 2021)</dd>
+          <dd data-lang="es">Máster en Psicología Infantojuvenil (UOC, 2025)<br>Grado en Psicología, mención Salud (UVic, 2021)</dd>
+
+          <dt>Idiomes</dt>
+          <dd>Castellà · Català · Portugès · Anglès</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="container">
+    <div class="section-label" data-lang="ca">Àrees d'acompanyament</div>
+    <div class="section-label" data-lang="es">Áreas de acompañamiento</div>
+
+    <h2 data-lang="ca">En què puc ajudar el teu fill o filla</h2>
+    <h2 data-lang="es">En qué puedo ayudar a tu hijo o hija</h2>
+
+    <p class="section-intro" data-lang="ca">Aquests són els motius de consulta més habituals. Si la situació que viviu no hi surt reflectida, parlem-ne sense compromís.</p>
+    <p class="section-intro" data-lang="es">Estos son los motivos de consulta más habituales. Si la situación que vivís no aparece reflejada, hablamos sin compromiso.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-number">— 01</div>
+        <h3 data-lang="ca">Dificultats emocionals</h3>
+        <h3 data-lang="es">Dificultades emocionales</h3>
+        <p data-lang="ca">Ansietat, tristesa, canvis d'humor, regulació emocional, baixa autoestima o por constant.</p>
+        <p data-lang="es">Ansiedad, tristeza, cambios de humor, regulación emocional, baja autoestima o miedo constante.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">— 02</div>
+        <h3 data-lang="ca">Problemes de conducta</h3>
+        <h3 data-lang="es">Problemas de conducta</h3>
+        <p data-lang="ca">Ràbies intenses, oposició, conductes disruptives a casa o a l'escola, dificultats per respectar normes.</p>
+        <p data-lang="es">Rabietas intensas, oposición, conductas disruptivas en casa o en la escuela, dificultades para respetar normas.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">— 03</div>
+        <h3 data-lang="ca">TEA i neurodivergència</h3>
+        <h3 data-lang="es">TEA y neurodivergencia</h3>
+        <p data-lang="ca">Acompanyament a infants i adolescents amb Trastorn de l'Espectre Autista, TDAH o altres diagnòstics del neurodesenvolupament.</p>
+        <p data-lang="es">Acompañamiento a niños y adolescentes con Trastorno del Espectro Autista, TDAH u otros diagnósticos del neurodesarrollo.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">— 04</div>
+        <h3 data-lang="ca">Dificultats escolars</h3>
+        <h3 data-lang="es">Dificultades escolares</h3>
+        <p data-lang="ca">Problemes d'aprenentatge, falta de motivació, frustració davant els estudis, atenció o rendiment per sota del potencial.</p>
+        <p data-lang="es">Problemas de aprendizaje, falta de motivación, frustración ante los estudios, atención o rendimiento por debajo del potencial.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">— 05</div>
+        <h3 data-lang="ca">Adolescència</h3>
+        <h3 data-lang="es">Adolescencia</h3>
+        <p data-lang="ca">Espai segur per parlar d'identitat, relacions, gestió de les emocions i els canvis propis d'aquesta etapa.</p>
+        <p data-lang="es">Espacio seguro para hablar de identidad, relaciones, gestión de las emociones y los cambios propios de esta etapa.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">— 06</div>
+        <h3 data-lang="ca">Orientació a famílies</h3>
+        <h3 data-lang="es">Orientación a familias</h3>
+        <p data-lang="ca">Suport als pares i mares, estratègies educatives, coordinació amb centres escolars per al seguiment del procés.</p>
+        <p data-lang="es">Apoyo a padres y madres, estrategias educativas, coordinación con centros escolares para el seguimiento del proceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="container">
+    <div class="section-label" data-lang="ca">Acompanyament</div>
+    <div class="section-label" data-lang="es">Acompañamiento</div>
+
+    <h2 data-lang="ca">Com treballem junts</h2>
+    <h2 data-lang="es">Cómo trabajamos juntos</h2>
+
+    <p class="section-intro" data-lang="ca">Abans de començar, t'explico com és el procés, perquè en tot moment sàpigues què esperar.</p>
+    <p class="section-intro" data-lang="es">Antes de empezar, te explico cómo es el proceso, para que en todo momento sepas qué esperar.</p>
+
+    <div class="process">
+      <div class="step">
+        <div class="step-number">I</div>
+        <h3 data-lang="ca">Primera trucada</h3>
+        <h3 data-lang="es">Primera llamada</h3>
+        <p data-lang="ca">Una conversa breu i gratuïta, d'uns 15 minuts, perquè m'expliquis què us porta i resoldre dubtes. Sense compromís.</p>
+        <p data-lang="es">Una conversación breve y gratuita, de unos 15 minutos, para que me cuentes qué os trae y resolver dudas. Sin compromiso.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">II</div>
+        <h3 data-lang="ca">Sessió d'avaluació</h3>
+        <h3 data-lang="es">Sesión de evaluación</h3>
+        <p data-lang="ca">Una hora d'escolta i exploració de la situació. En acabar, us proposo un pla: cap on anar, amb quin ritme i durada estimada.</p>
+        <p data-lang="es">Una hora de escucha y exploración de la situación. Al terminar, os propongo un plan: hacia dónde ir, con qué ritmo y duración estimada.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">III</div>
+        <h3 data-lang="ca">Sessions de procés</h3>
+        <h3 data-lang="es">Sesiones de proceso</h3>
+        <p data-lang="ca">Sessions setmanals al principi, espaiades segons la necessitat. Presencials a Manresa (NEUROLOPSI / SINAPSI) o en línia.</p>
+        <p data-lang="es">Sesiones semanales al principio, espaciadas según necesidad. Presenciales en Manresa (NEUROLOPSI / SINAPSI) o en línea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacte">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <h2 data-lang="ca">Quan estigueu preparats, en parlem.</h2>
+        <h2 data-lang="es">Cuando estéis preparados, hablamos.</h2>
+        <p style="color: var(--muted); margin: 16px 0 24px; font-size: 17px;" data-lang="ca">Us responc personalment en menys de 24 hores laborables.</p>
+        <p style="color: var(--muted); margin: 16px 0 24px; font-size: 17px;" data-lang="es">Os respondo personalmente en menos de 24 horas laborables.</p>
+
+        <h3 data-lang="ca">Telèfon</h3>
+        <h3 data-lang="es">Teléfono</h3>
+        <p><a href="tel:+34686842616">+34 686 84 26 16</a></p>
+
+        <h3>Email</h3>
+        <p><a href="mailto:eduard.sanchez_psicoleg@protonmail.com">eduard.sanchez_psicoleg@protonmail.com</a></p>
+
+        <h3 data-lang="ca">Consultes presencials</h3>
+        <h3 data-lang="es">Consultas presenciales</h3>
+        <p data-lang="ca">NEUROLOPSI · Manresa<br>SINAPSI · Artés</p>
+        <p data-lang="es">NEUROLOPSI · Manresa<br>SINAPSI · Artés</p>
+
+        <h3 data-lang="ca">Modalitat</h3>
+        <h3 data-lang="es">Modalidad</h3>
+        <p data-lang="ca">Presencial i en línia</p>
+        <p data-lang="es">Presencial y en línea</p>
+
+        <h3 data-lang="ca">Horari</h3>
+        <h3 data-lang="es">Horario</h3>
+        <p data-lang="ca">Dilluns a divendres, amb cita prèvia</p>
+        <p data-lang="es">Lunes a viernes, con cita previa</p>
+      </div>
+      <form id="contact-form">
+        <input type="hidden" name="access_key" value="0f26aad2-70d0-41be-98b6-9e9047519316">
+        <input type="hidden" name="subject" value="Nou missatge des de la web / Nuevo mensaje desde la web">
+        <input type="hidden" name="from_name" value="Web Eduard Sánchez">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="name" placeholder="Nom / Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefon" placeholder="Telèfon / Teléfono (opcional)">
+        <textarea name="missatge" placeholder="Si t'ho sembla, explica'm breument què us porta / Si te parece, cuéntame brevemente qué os trae" required></textarea>
+        <button type="submit" class="btn btn-primary" data-lang="ca">Enviar missatge</button>
+        <button type="submit" class="btn btn-primary" data-lang="es">Enviar mensaje</button>
+        <small style="color: var(--muted); font-size: 13px;" data-lang="ca">En enviar, accepteu la política de privacitat.</small>
+        <small style="color: var(--muted); font-size: 13px;" data-lang="es">Al enviar, aceptas la política de privacidad.</small>
+        <p id="form-status" style="margin-top: 14px; font-size: 15px; display: none;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a href="#" data-lang="ca">Avís legal</a>
+    <a href="#" data-lang="es">Aviso legal</a> ·
+    <a href="#" data-lang="ca">Política de privacitat</a>
+    <a href="#" data-lang="es">Política de privacidad</a> ·
+    <a href="#" data-lang="ca">Política de cookies</a>
+    <a href="#" data-lang="es">Política de cookies</a> ·
+    <a href="https://linkedin.com/in/eduard-sánchez-oliveras-465944427" target="_blank" rel="noopener">LinkedIn</a>
+    <p style="margin-top: 20px;">© 2026 Eduard Sánchez i Oliveras · Psicòleg col·legiat núm. 30616</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    const html = document.documentElement;
+    const KEY = 'eduard-lang';
+
+    function setLang(lang) {
+      if (lang !== 'ca' && lang !== 'es') lang = 'ca';
+      html.setAttribute('data-active-lang', lang);
+      html.setAttribute('lang', lang);
+      try { localStorage.setItem(KEY, lang); } catch(e) {}
+      document.querySelectorAll('[data-set-lang]').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+      });
+    }
+
+    // Idioma por defecto: catalán. Si hay preferencia guardada, se respeta.
+    let saved = null;
+    try { saved = localStorage.getItem(KEY); } catch(e) {}
+    setLang(saved || 'ca');
+
+    document.querySelectorAll('[data-set-lang]').forEach(b => {
+      b.addEventListener('click', () => setLang(b.getAttribute('data-set-lang')));
+    });
+  })();
+</script>
+
+<script>
+  (function() {
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    if (!form) return;
+
+    const msgs = {
+      sending: { ca: "S'està enviant...", es: 'Enviando...' },
+      ok: { ca: 'Missatge enviat correctament. Us respondré aviat.', es: 'Mensaje enviado correctamente. Te responderé pronto.' },
+      error: { ca: "Hi ha hagut un error. Torneu-ho a provar o escriviu-me directament per email.", es: 'Ha habido un error. Vuelve a intentarlo o escríbeme directamente por email.' }
+    };
+
+    function currentLang() {
+      return document.documentElement.getAttribute('data-active-lang') === 'es' ? 'es' : 'ca';
+    }
+
+    function showStatus(key, color) {
+      status.style.display = 'block';
+      status.style.color = color;
+      status.textContent = msgs[key][currentLang()];
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtns = form.querySelectorAll('button[type="submit"]');
+      submitBtns.forEach(b => b.disabled = true);
+      showStatus('sending', '#6b5f55');
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        const data = await res.json();
+        if (data.success) {
+          showStatus('ok', '#3a6b4a');
+          form.reset();
+        } else {
+          showStatus('error', '#a03a3a');
+        }
+      } catch (err) {
+        showStatus('error', '#a03a3a');
+      } finally {
+        submitBtns.forEach(b => b.disabled = false);
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
